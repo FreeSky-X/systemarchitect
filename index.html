@@ -27,6 +27,9 @@
       loadNavbar: true,
       // 封面支持，默认加载项目更目录_coverpage.md
       coverpage: true,
+      // 页脚配置，需要自己配
+      loadFooter: true,
+      loadFooter: '_footer.md',
       //最大支持渲染的标题层级
       maxLevel: 5,
       // 自定义侧边栏后默认不会再生成目录，设置生成目录的最大层级(建议配置为2-4)
@@ -38,6 +41,7 @@
   <script>
     //搜索框配置(url：https://docsify.js.org/#/zh-cn/plugins?id=%e5%85%a8%e6%96%87%e6%90%9c%e7%b4%a2-search)
     window.$docsify = {
+      //搜索插件
       search: {
         maxAge: 86400000, // 过期时间，单位毫秒，默认一天
         paths: auto, //注意：仅适用于 paths: 'auto' 模式
@@ -51,11 +55,35 @@
         depth: 4,
         hideOtherSidebarContent: false,
         namespace: 'System-Architect',
+      },
+      //字数统计插件
+      count: {
+        countable: true,
+        position: 'top',
+        margin: '10px',
+        float: 'right',
+        fontsize: '0.9em',
+        color: 'rgb(90,90,90)',
+        language: 'chinese',
+        localization: {
+          words: "",
+          minute: ""
+        },
+        isExpected: true
+      },
+      // 分页导航
+      paination: {
+        previousText: '上一节',
+        nextText: '下一节',
+        crossChapter: true,
+        crosschapterText: true
       }
     }
   </script>
   <!-- Docsify v4 -->
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+  <!-- 页脚配置 -->
+  <script src="//cdn.jsdelivr.net/npm/@alertbox/docsify-footer/dist/docsify-footer.min.js"></script>
   <!-- emoji表情支持 -->
 
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
@@ -74,6 +102,12 @@
 
   <!-- 侧边栏折叠插件 -->
   <script src="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
+
+  <!-- 字数统计插件 -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify-count@latest/dist/countable.min.js"></script>
+
+  <!-- 分页导航 -->
+  <script src="//unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script>
 </body>
 
 </html>
